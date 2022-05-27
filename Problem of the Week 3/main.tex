@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+
+\usepackage{parskip}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Problem of the Week 3}%replace X with the appropriate number
+\author{JFB} %if necessary, replace with your course title
+ 
+\maketitle
+Consider the set of $3\times 3$ matrices with distinct entries. We form $6$ numbers, $3$ by reading off the digits in the row entries left to right, and $3$ more by reading off the digits in the columns up to down. Note that we interpret a number like $037$ as $37$ (though we will see that something like this cannot happen).
+
+We start by stating some lemmas that are common knowledge. 
+\begin{lemma}{1}
+If an integer $n$ is divisible by $6$, then $n$ is even.
+\end{lemma}
+\begin{proof}
+Assume $n \in \Z$ is divisible by $6$. Then $n = 6m$ for some $m \in \Z$. But then $n = 2(3m)$. Thus, $n$ is even. 
+
+\end{proof}
+\begin{lemma}{2}
+If an integer $n$ is even, then the digit in the ones place of the number is $0,2,4,6$ or $8$.
+\end{lemma}
+
+\begin{lemma}{3}
+If an integer $n$ is divisible by $5$, then the digit in its ones place is either $5$ or $0$. 
+\end{lemma}
+\begin{proof}
+Let $n$ be an integer divisible by $5$. Then $n = 5m$ for some $m \in \Z$. But then we see that 
+$$
+n = \underbrace{5 + 5 + \dots + 5}_{\text{m times}}
+$$
+If $m$ even, we see that this expression will end in $0$. Otherwise, it will clearly end in a $5$.
+
+\end{proof}
+
+Using these three lemmas, we can now show that \textbf{there is only only number in the $3\times3$ matrix that is divisible by $5$}. 
+\begin{proof}
+
+Since we know that each number in the matrix is divisible by $6$, by lemma 1 each number must be even. But by lemma 2, this means that their digits in the ones place must be even. Therefore, our matrix must look like this. 
+$$
+\begin{bmatrix}
+odd_1 & odd_2 & even_1\\
+odd_3 & odd_4 & even_2\\
+even_3 & even_4 & even_5
+\end{bmatrix}
+$$
+where $odd_i \in \{1,3,5,7,9\}$ and $even_i \in \{0,2,4,6,8\}$. But then, by lemma 3, we know in order to be divisible by $5$, our number must end in $0$ or $5$. Since our number cannot end in $5$, there is only one number divisible by $5$. But since we must use all of our even numbers, we know $0$ must occur in the ones place of exactly one number in our matrix. Therefore, there is one number in this matrix that is divisible by $5$. 
+
+\end{proof}
+
+\end{document}
