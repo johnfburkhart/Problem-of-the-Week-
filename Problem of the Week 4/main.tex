@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+
+\usepackage{parskip}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Problem of the Week 4}%replace X with the appropriate number
+\author{JFB} %if necessary, replace with your course title
+ 
+\maketitle
+
+By the requirements of the problem see that Peter's final number must be $666$, $669$, $696$, $699$,  $966$, $999$, $996$, or $969$.
+
+Writing a program, we can brute force check that the Peter's original number could be any element of 
+$$
+\{135, 138, 234, 237, 333, 336, 432, 435, 531, 534, 630, 633, 732, 831, 930 \}
+$$
+One can check each of these solutions and see that any one of them may have been Peter's number.
+
+Here is the program that verifies this solution,
+
+\begin{lstlisting}
+targets = [666, 669, 696, 699, 999, 966, 996, 969] 
+three_digit_nums = list(range(100,1000))
+
+good_nums = []
+for num in three_digit_nums:
+    string_num = str(num)
+    reverse_num = int(string_num[::-1])
+    if reverse_num + num in targets:
+        good_nums.append(num)
+print(good_nums)
+[135, 138, 234, 237, 333, 336, 432, 435, 531, 534, 630, 633, 732, 831, 930]
+\end{lstlisting}
+
+
+\end{document}
