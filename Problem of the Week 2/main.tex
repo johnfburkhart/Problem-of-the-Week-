@@ -1,0 +1,76 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Problem of the Week 2}%replace X with the appropriate number
+\author{JFB} %if necessary, replace with your course title
+ 
+\maketitle
+
+We begin by considering the system of equations
+\begin{align}
+    pq &= r \\
+    qr &= p \\
+    rp &= q
+\end{align}
+
+where $p,q,r \in \mathbb{R}$. In other words, we are trying to solve for three real numbers such that each is the product of the other two. It is easy to verify that the set of solutions $$\{(0,0,0), (1,1,1), (1,-1,-1), (-1,1,-1), (-1,-1,1)\}$$ satisfies this system of equations. What is not as easy to see, is that these are the only solutions to this system. To show that this is indeed the solution set, we consider various generalizable cases. \\
+
+Case 1, $p = q = r$: By $(1)$, this case would imply that $r = r^2$. We can solve this to see
+\begin{align*}
+    r &= r^2 \\
+    0 &= r^2 - r \\
+    0 &= r(1-r)
+\end{align*}
+So, we see that the only solutions are when $p = q = r = 0$ or $p = q = r = 1$, which we have already covered in the solution set. \\
+
+Case 2, $p \geq q = r$: By $(1)$, this case would imply that $r = pr$. We then see 
+\begin{align*}
+    r &= pr \\
+    0 &= pr - r \\
+    0 &= r(p-1)
+\end{align*}
+
+If $ r = q = 0$, then since $p = qr$, $p = 0$. If $p = 1$, then by $(2)$ we get that $r^2 = 1$. So $r = q = \pm 1$. Again, this case would give us solutions already covered in my solution set. \\
+
+Case 3, $p = q \geq r$: This case follows similarly to the previous one, so for brevity, I will not show it. 
+
+Case 4, $p > q > r$: For this case, we show that contradictions arise. By $(1)$, we get that $0 = r - pq$. But then by substitution using $(3)$, we see that this implies 
+\begin{align*}
+    0 &= r - p(rp) \\
+    0 &= r - rp^2 \\
+    0 &= r(1 - p^2)
+\end{align*}
+If $r = 0$, then we get a contradiction by $(1)$ (since $p > q > r = 0$). If $p = 1$, then we get another contradiction, since by $(1)$ or $(3)$, that would imply $p = q$. Finally, if $p = -1$, then by $(1)$, $-q = r$, which would also contradiction the assumptions of this case. Thus, the solution set is given by 
+$$\{(0,0,0), (1,1,1), (1,-1,-1), (-1,1,-1), (-1,-1,1)\}$$.
+\end{document}
